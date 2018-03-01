@@ -6,7 +6,7 @@
 package mx.unam.ciencias.is.controlador;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import mx.unam.ciencias.is.modelo.Proyecto;
 import mx.unam.ciencias.is.modelo.ProyectoDAO;
 
@@ -16,6 +16,8 @@ import mx.unam.ciencias.is.modelo.ProyectoDAO;
  */
 //Etiqueta para decirle a jsf que esta clase es un controlador
 @ManagedBean
+//Etiqueta para que viva este bean hasta que se cambie de pagina. util para jax
+@ViewScoped
 public class GuardaProyecto {
     
     private String nombre;
@@ -28,8 +30,10 @@ public class GuardaProyecto {
         this.nombre = nombre;
     }
     
+    /**
+     * peticion que guarda un proyecto 
+     */
     public void guardaProyecto(){
-        System.out.println(this.nombre);
         Proyecto p = new Proyecto();
         p.setNombre(nombre);
         ProyectoDAO pd = new ProyectoDAO();
