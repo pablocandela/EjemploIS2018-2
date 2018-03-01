@@ -6,7 +6,7 @@
     <class name="mx.unam.ciencias.is.modelo.Empleado" table="empleado" schema="public" optimistic-lock="version">
         <id name="empleadoId" type="int">
             <column name="empleado_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="nombre" type="string">
             <column name="nombre" not-null="true" />
