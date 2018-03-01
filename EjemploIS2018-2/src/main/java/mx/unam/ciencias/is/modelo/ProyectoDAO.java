@@ -18,7 +18,6 @@ public class ProyectoDAO {
     
     public ProyectoDAO(){
         this.sessionFactory = HibernateUtil.getSessionFactory();
-    
     }
     
     public void guarda(Proyecto p){
