@@ -1,5 +1,5 @@
 package mx.unam.ciencias.is.modelo;
-// Generated Feb 28, 2018 11:51:42 PM by Hibernate Tools 4.3.1
+// Generated 06-mar-2018 0:19:22 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,21 +14,27 @@ public class Empleado  implements java.io.Serializable {
      private int empleadoId;
      private String nombre;
      private String apellido;
+     private String correo;
+     private String contrasenia;
      private Set trabajars = new HashSet(0);
 
     public Empleado() {
     }
 
 	
-    public Empleado(int empleadoId, String nombre, String apellido) {
+    public Empleado(int empleadoId, String nombre, String apellido, String correo, String contrasenia) {
         this.empleadoId = empleadoId;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
     }
-    public Empleado(int empleadoId, String nombre, String apellido, Set trabajars) {
+    public Empleado(int empleadoId, String nombre, String apellido, String correo, String contrasenia, Set trabajars) {
        this.empleadoId = empleadoId;
        this.nombre = nombre;
        this.apellido = apellido;
+       this.correo = correo;
+       this.contrasenia = contrasenia;
        this.trabajars = trabajars;
     }
    
@@ -52,6 +58,20 @@ public class Empleado  implements java.io.Serializable {
     
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+    public String getCorreo() {
+        return this.correo;
+    }
+    
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getContrasenia() {
+        return this.contrasenia;
+    }
+    
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
     public Set getTrabajars() {
         return this.trabajars;

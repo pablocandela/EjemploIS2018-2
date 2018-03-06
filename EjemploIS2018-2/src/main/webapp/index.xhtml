@@ -13,6 +13,18 @@
         <h:link outcome="guardaproyecto" value="Guarda un proyecto" />
         <br/>
         <h:link outcome="verempleados" value="ver Empleados" />
+        <br/> <br/>
+        <h:form>
+            <h:inputText value="#{loginController.username}"  />
+            <h:inputSecret value="#{loginController.password}" />
+            <h:commandButton value="login" action="#{loginController.login}" />
+        </h:form>
+        <h:panelGroup rendered="#{not empty user}">
+            <p>Welcome, #{user.nombre} #{user.contrasenia}</p>
+            <h:form>
+                <h:commandButton value="logout" action="#{loginController.logout}" />
+            </h:form>
+        </h:panelGroup>
     </h:body>
 </html>
 

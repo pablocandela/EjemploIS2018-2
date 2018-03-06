@@ -1,5 +1,5 @@
 package mx.unam.ciencias.is.modelo;
-// Generated Feb 28, 2018 11:51:42 PM by Hibernate Tools 4.3.1
+// Generated 06-mar-2018 0:19:22 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

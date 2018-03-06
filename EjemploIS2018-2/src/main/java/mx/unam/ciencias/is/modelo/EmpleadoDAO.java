@@ -57,5 +57,35 @@ public class EmpleadoDAO {
         return result;
     }
 
-    
+    /**
+     * Regresa una lista con todos los empleados que estan activos en la base de datos.
+     * @return 
+     */
+    public Empleado encuentra(String correo) {
+        Empleado result = null;
+        // arbrimos la sesion son sessionFactory 
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            //iniciamos la transaccion, la consulta a realizar
+            tx = session.beginTransaction();
+            //Escribimos la consulta en HQL
+            String hql = " from Empleado where correo like '%"+correo+"%'";
+            Query query = session.createQuery(hql);
+            //query.setParameter("correo", correo);
+            result = (Empleado)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+            //si hay un problema regresamos la base aun estado antes de la consulta
+            if (tx!=null){
+                tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+            //cerramos la session
+            session.close();
+        }
+        return result;
+    }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 28, 2018 11:51:43 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 06-mar-2018 0:19:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="mx.unam.ciencias.is.modelo.Trabajar" table="trabajar" schema="public" optimistic-lock="version">
         <id name="idtrabajar" type="int">
             <column name="idtrabajar" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
         <many-to-one name="empleado" class="mx.unam.ciencias.is.modelo.Empleado" fetch="select">
             <column name="idempleado" not-null="true" />
