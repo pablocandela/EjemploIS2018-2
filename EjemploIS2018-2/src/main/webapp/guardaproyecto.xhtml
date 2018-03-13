@@ -14,14 +14,14 @@
         </h:head>
 
         <h:body>
-
+            <h:panelGroup rendered="#{not empty user}">
             <h:form>
                 <h:outputText value="Nombre* :" />
                 <p:inputText value="#{guardaProyecto.nombre}" placeholder="Nombre"/>
                 <br/>
                 <p:commandButton value=" Aceptar " action="#{guardaProyecto.guardaProyecto()}" />
             </h:form>
-
+            </h:panelGroup> 
         </h:body>
 
     </f:view>

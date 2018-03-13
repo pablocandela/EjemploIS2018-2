@@ -8,6 +8,7 @@ package mx.unam.ciencias.is.controlador;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mx.unam.ciencias.is.modelo.Empleado;
 import mx.unam.ciencias.is.modelo.EmpleadoDAO;
@@ -17,7 +18,7 @@ import mx.unam.ciencias.is.modelo.EmpleadoDAO;
  * @author jonathan
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginController {
     
     
@@ -54,7 +55,8 @@ public class LoginController {
             return null;
         } else if(user.getContrasenia().equals(this.password)){
             context.getExternalContext().getSessionMap().put("user", user);
-            return "index?faces-redirect=true";
+            
+            return "inicio?faces-redirect=true";
         } else {
             context.addMessage(null, new FacesMessage("Unknown login, try again"));
             username = null;
