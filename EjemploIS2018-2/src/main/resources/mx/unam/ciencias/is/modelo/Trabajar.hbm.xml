@@ -6,7 +6,7 @@
     <class name="mx.unam.ciencias.is.modelo.Trabajar" table="trabajar" schema="public" optimistic-lock="version">
         <id name="idtrabajar" type="int">
             <column name="idtrabajar" />
-            <generator class="idenntity" />
+            <generator class="identity" />
         </id>
         <many-to-one name="empleado" class="mx.unam.ciencias.is.modelo.Empleado" fetch="select">
             <column name="idempleado" not-null="true" />
