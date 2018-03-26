@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -20,13 +19,16 @@ and open the template in the editor.
         </h:head>
 
         <h:body>
-
+            <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
             <h:panelGroup rendered="#{not empty user}">
             <p>Welcome, #{user.nombre} #{user.contrasenia}</p>
             <h:form>
+                
                 <h:commandButton value="logout" action="#{loginController.logout}" />
             </h:form>
-            <h:link outcome="guardaproyecto" value="Guarda un proyecto" />
+            <h:link outcome="/guardaproyecto" value="Guarda un proyecto" />
         </h:panelGroup>
         </h:body>
 

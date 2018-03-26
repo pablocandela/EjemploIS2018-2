@@ -61,7 +61,7 @@ public class EmpleadoDAO {
      * Regresa una lista con todos los empleados que estan activos en la base de datos.
      * @return 
      */
-    public Empleado encuentra(String correo) {
+    public Empleado encuentra(String correo,String pass) {
         Empleado result = null;
         // arbrimos la sesion son sessionFactory 
         Session session = sessionFactory.openSession();
@@ -70,8 +70,9 @@ public class EmpleadoDAO {
             //iniciamos la transaccion, la consulta a realizar
             tx = session.beginTransaction();
             //Escribimos la consulta en HQL
-            String hql = " from Empleado where correo like '%"+correo+"%'";
+            String hql = " from Empleado where correo like '%"+correo+"%' and contrasenia = :pass" ;
             Query query = session.createQuery(hql);
+            query.setParameter("pass", pass);
             //query.setParameter("correo", correo);
             result = (Empleado)query.uniqueResult();
             tx.commit();

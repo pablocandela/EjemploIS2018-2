@@ -8,7 +8,7 @@ package mx.unam.ciencias.is.controlador;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import mx.unam.ciencias.is.modelo.Empleado;
 import mx.unam.ciencias.is.modelo.EmpleadoDAO;
 
@@ -17,7 +17,7 @@ import mx.unam.ciencias.is.modelo.EmpleadoDAO;
  * @author jonathan
  */
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class VerEmpleados {
     private List<Empleado> empleados;
 

@@ -19,7 +19,7 @@ import mx.unam.ciencias.is.modelo.EmpleadoDAO;
  */
 @ManagedBean
 @SessionScoped
-public class LoginController {
+public class LoginController  {
     
     
     private String username;
@@ -45,28 +45,25 @@ public class LoginController {
     
     public String login() {
         EmpleadoDAO em = new EmpleadoDAO();
-        Empleado user = em.encuentra(username);
+        Empleado user = em.encuentra(username,password);
         FacesContext context = FacesContext.getCurrentInstance();
 
         if (user == null) {
             context.addMessage(null, new FacesMessage("Unknown login, try again"));
             username = null;
             password = null;
-            return null;
-        } else if(user.getContrasenia().equals(this.password)){
+            return "";
+        } else{
             context.getExternalContext().getSessionMap().put("user", user);
-            
-            return "inicio?faces-redirect=true";
-        } else {
-            context.addMessage(null, new FacesMessage("Unknown login, try again"));
             username = null;
             password = null;
-            return null; 
+            return "/user/inicio?faces-redirect=true";
+        
         }
     }
 
-    public String logout() {
+    public String  logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index?faces-redirect=true";
+        return "/index?faces-redirect=true";
     }
 }
