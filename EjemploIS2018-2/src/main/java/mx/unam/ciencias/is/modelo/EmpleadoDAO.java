@@ -70,7 +70,7 @@ public class EmpleadoDAO {
             //iniciamos la transaccion, la consulta a realizar
             tx = session.beginTransaction();
             //Escribimos la consulta en HQL
-            String hql = " from Empleado where correo like '%"+correo+"%' and contrasenia = :pass" ;
+            String hql = " select e from Empleado e join fetch e.trabajars where correo like '%"+correo+"%' and contrasenia = :pass" ;
             Query query = session.createQuery(hql);
             query.setParameter("pass", pass);
             //query.setParameter("correo", correo);
